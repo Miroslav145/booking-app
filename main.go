@@ -15,9 +15,9 @@ func main() {
 	fmt.Printf("We have total of %d tickets and %d are still available.\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 
-	/*Array: In Go, arrays have fixed sizes
-	Example:var bookings = [50]string{"Kylian", "Javier", "Marco"} */
-	var bookings [50]string
+	/*Slices are dynamic
+	var bookings []string */
+	bookings := []string{}
 
 	//explicit typing
 	var firstName string
@@ -40,11 +40,12 @@ func main() {
 
 	remainingTickets -= userTickets
 
-	bookings[0] = firstName + " " + lastName
-	fmt.Printf("The whole array: %v\n", bookings)
+	bookings = append(bookings, firstName+" "+lastName)
+
+	fmt.Printf("\nThe whole slice: %v\n", bookings)
 	fmt.Printf("The first value: %v\n", bookings[0])
-	fmt.Printf("Array type: %T\n", bookings)
-	fmt.Printf("Array length: %d\n", len(bookings))
+	fmt.Printf("Slice type: %T\n", bookings)
+	fmt.Printf("Slice length: %d\n", len(bookings))
 
 	fmt.Printf("\nThank you %s %s for booking %d tickets. You will receive a confirmation email at %s\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%d tickets remaining for %s", remainingTickets, conferenceName)
